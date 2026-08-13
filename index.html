@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Richard L. Crosby Scholarship</title>
+<meta name="description" content="The Richard L. Crosby Scholarship awards $1,000 to two graduating seniors — one in Cincinnati, one in Seattle — through an annual essay contest on public service.">
+<link rel="icon" href="images/seal.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3F;
+  --navy-deep:#081730;
+  --red:#B31942;
+  --red-deep:#8C1333;
+  --blue:#3C5A99;
+  --off-white:#f7f5f2;
+  --white:#ffffff;
+  --gray-section:#f2f0ed;
+  --gray-light:#666;
+  --text-dark:#0B1F3F;
+  --text-mid:#0B1F3F;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--text-dark);font-family:"Barlow",sans-serif;font-weight:300;overflow-x:hidden;font-size:17px;}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:92px;background:rgba(11,31,63,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(179,25,66,0.3);}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-brand img{height:64px;width:auto;display:block;}
+.nav-name{font-family:"Bebas Neue",sans-serif;font-size:24px;color:#f0ede8;letter-spacing:1.5px;}
+nav ul{display:flex;list-style:none;gap:32px;align-items:center;}
+nav ul a{color:#a9b4c7;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;transition:color 0.2s;}
+nav ul a:hover{color:#f0ede8;}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:9px 20px!important;}
+.nav-cta:hover{background:var(--red-deep)!important;}
+@media(max-width:768px){ nav{padding:0 20px;height:76px;} nav ul li:not(:last-child){display:none;} .nav-name{font-size:18px;} .nav-brand img{height:52px;width:auto;} }
+
+/* HERO */
+#hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy-deep);}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 20%;opacity:0.35;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,23,48,0.4) 0%,rgba(8,23,48,0.55) 35%,rgba(8,23,48,0.92) 75%,var(--navy-deep) 100%);}
+.hero-red-bar{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red);}
+.hero-content{position:relative;z-index:2;padding:120px 64px 88px;max-width:920px;}
+.hero-eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#f0ede8;margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.hero-eyebrow::before{content:"";display:inline-block;width:28px;height:1px;background:var(--red);}
+.hero-eyebrow .pipe{color:var(--red);margin:0 4px;}
+.hero-headline{font-family:"Bebas Neue",sans-serif;font-size:clamp(44px,6vw,80px);line-height:0.95;color:#f0ede8;margin-bottom:22px;}
+.hero-headline .accent{color:var(--red);}
+.hero-sub{font-family:"Cormorant Garamond",serif;font-size:20px;font-style:italic;color:rgba(240,237,232,0.75);max-width:560px;line-height:1.72;margin-bottom:40px;}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-p{background:var(--red);color:#fff;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:15px 34px;transition:background 0.2s,transform 0.15s;display:inline-block;}
+.btn-p:hover{background:var(--red-deep);transform:translateY(-2px);}
+.btn-s{color:#f0ede8;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:15px 34px;border:1px solid rgba(240,237,232,0.3);transition:border-color 0.2s,transform 0.15s;display:inline-block;}
+.btn-s:hover{border-color:var(--red);color:#f0ede8;}
+@media(max-width:768px){ .hero-content{padding:96px 22px 52px;} .hero-eyebrow{font-size:11px;letter-spacing:3px;} }
+
+/* AWARD STRIP */
+.award-strip{background:var(--white);padding:0;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #e8e4df;}
+.award-cell{padding:36px 60px;border-top:4px solid var(--red);}
+.award-cell:first-child{border-right:1px solid #e8e4df;}
+.award-cell .amt{font-family:"Bebas Neue",sans-serif;font-size:44px;color:var(--text-dark);line-height:1;}
+.award-cell .loc{font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);margin-top:8px;}
+@media(max-width:700px){ .award-strip{grid-template-columns:1fr;} .award-cell:first-child{border-right:none;border-bottom:1px solid #e8e4df;} .award-cell{padding:28px 22px;} }
+
+/* SEAL BAND */
+.seal-band{background:var(--gray-section);padding:56px 60px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;text-align:center;border-bottom:1px solid #e2ded4;}
+.seal-band img{width:auto;height:190px;flex-shrink:0;}
+.seal-band .seal-text{max-width:420px;text-align:left;}
+.seal-band .seal-motto{font-family:"Barlow Condensed",sans-serif;font-size:18px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);}
+.seal-band .seal-sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:19px;color:var(--gray-light);margin-top:6px;}
+@media(max-width:600px){ .seal-band{padding:40px 22px;} .seal-band .seal-text{text-align:center;} }
+
+/* QUOTE BLAST */
+.quote-blast{background:var(--white);padding:90px 60px;text-align:center;border-bottom:1px solid #e8e4df;}
+.quote-blast blockquote{font-family:"Bebas Neue",sans-serif;font-size:clamp(26px,3.6vw,50px);line-height:1.14;color:var(--text-dark);max-width:1000px;margin:0 auto;}
+.quote-blast blockquote .open-quote{color:var(--red);font-size:1.2em;line-height:0;vertical-align:-0.15em;}
+.quote-blast blockquote span.accent{color:var(--red);}
+.quote-blast cite{display:block;margin-top:20px;font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);}
+@media(max-width:1024px){ .quote-blast{padding:60px 32px;} }
+
+/* SHARED SECTION STYLES */
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:"";display:inline-block;width:20px;height:1px;background:var(--red);}
+.sec-h2-dark{font-family:"Bebas Neue",sans-serif;font-size:clamp(38px,4.6vw,66px);line-height:0.95;margin-bottom:28px;color:var(--text-dark);}
+.sec-h2-light{font-family:"Bebas Neue",sans-serif;font-size:clamp(38px,4.6vw,66px);line-height:0.95;margin-bottom:28px;color:#f0ede8;}
+
+/* FOUNDER STORY */
+#story{padding:100px 60px;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;border-bottom:1px solid #e8e4df;}
+.story-visual img{width:100%;display:block;border-top:4px solid var(--red);}
+.story-caption{margin-top:10px;font-family:"Barlow Condensed",sans-serif;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light);}
+.story-text p{font-size:17px;line-height:1.88;color:var(--text-mid);margin-bottom:18px;}
+.story-text p strong{color:var(--text-dark);font-weight:600;}
+@media(max-width:1024px){ #story{padding:80px 32px;gap:48px;} }
+@media(max-width:768px){ #story{grid-template-columns:1fr;} }
+
+/* WHY IT MATTERS */
+#why{padding:100px 60px;background:var(--gray-section);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.why-visual img{width:100%;display:block;border-top:4px solid var(--red);}
+.why-text h3{font-family:"Bebas Neue",sans-serif;font-size:clamp(28px,3.2vw,40px);color:var(--text-dark);margin-bottom:18px;line-height:1;}
+.why-text p{font-size:17px;line-height:1.85;color:var(--text-mid);}
+@media(max-width:1024px){ #why{padding:70px 32px;} }
+@media(max-width:768px){ #why{grid-template-columns:1fr;} }
+
+/* TWO PATHS — navy section for contrast */
+#paths{padding:100px 60px;background:var(--navy-deep);}
+.p-header{max-width:640px;margin-bottom:52px;}
+.p-header p{font-size:16px;color:rgba(240,237,232,0.6);margin-top:14px;}
+.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.path-card{background:#0f2547;padding:44px 40px;position:relative;overflow:hidden;transition:background 0.3s;}
+.path-card::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.path-card:hover{background:#132b52;}
+.path-card:hover::after{transform:scaleX(1);}
+.path-tag{font-family:"Barlow Condensed",sans-serif;font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#f0ede8;background:var(--red);padding:6px 14px;display:inline-block;margin-bottom:20px;}
+.path-card h3{font-family:"Barlow Condensed",sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#f0ede8;margin-bottom:14px;}
+.path-card p{font-size:15px;line-height:1.78;color:rgba(240,237,232,0.72);}
+@media(max-width:1024px){ #paths{padding:70px 32px;} }
+@media(max-width:700px){ .paths-grid{grid-template-columns:1fr;} }
+
+/* REGIONS */
+#regions{padding:80px 60px;background:var(--gray-section);}
+.regions-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;}
+.region-card{position:relative;overflow:hidden;border-top:3px solid var(--red);aspect-ratio:4/3;}
+.region-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.region-card .region-tag{position:absolute;left:0;bottom:0;background:var(--navy);color:#f0ede8;font-family:"Barlow Condensed",sans-serif;font-size:15px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;}
+@media(max-width:700px){ #regions{padding:60px 22px;} .regions-grid{grid-template-columns:1fr;} }
+
+/* ELIGIBILITY */
+#eligibility{padding:80px 60px;background:var(--white);border-bottom:1px solid #e8e4df;}
+.elig-list{margin-top:32px;display:flex;flex-direction:column;gap:16px;max-width:680px;}
+.elig-item{font-size:16px;color:var(--text-mid);padding-left:22px;position:relative;line-height:1.6;}
+.elig-item::before{content:"›";position:absolute;left:0;color:var(--red);font-size:20px;line-height:1.2;}
+@media(max-width:1024px){ #eligibility{padding:70px 32px;} }
+@media(max-width:600px){ #eligibility{padding:60px 22px;} }
+
+/* ESSAY PROMPT */
+#essay{padding:100px 60px;background:var(--navy-deep);text-align:center;}
+.plaque{max-width:760px;margin:0 auto;}
+.plaque .eyebrow{justify-content:center;color:var(--red);}
+.plaque .eyebrow::before{display:none;}
+.plaque blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.6;color:#f0ede8;margin-top:20px;}
+.plaque .word-limit{margin-top:28px;font-family:"Barlow Condensed",sans-serif;font-size:16px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--red);}
+@media(max-width:1024px){ #essay{padding:70px 32px;} }
+
+/* HOW TO APPLY */
+#apply{padding:100px 60px;background:var(--white);border-bottom:1px solid #e8e4df;}
+.apply-header{max-width:640px;margin-bottom:12px;}
+.apply-header p{font-size:16px;color:var(--gray-light);margin-top:14px;}
+.steps{margin-top:40px;display:flex;flex-direction:column;max-width:720px;}
+.step{display:flex;gap:28px;padding:28px 0;border-bottom:1px solid #e8e4df;}
+.step:last-child{border-bottom:none;}
+.step-num{font-family:"Bebas Neue",sans-serif;font-size:40px;color:var(--red);line-height:1;flex-shrink:0;width:50px;}
+.step h4{font-family:"Barlow Condensed",sans-serif;font-size:17px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--text-dark);margin-bottom:8px;}
+.step p{font-size:16px;color:var(--gray-light);line-height:1.7;}
+.step code{font-family:monospace;font-size:0.92em;background:none;padding:0;color:var(--navy);font-weight:600;}
+@media(max-width:1024px){ #apply{padding:70px 32px;} }
+@media(max-width:600px){ #apply{padding:60px 22px;} .step{gap:18px;} }
+
+/* TIMELINE */
+#timeline{padding:80px 60px;background:var(--gray-section);}
+.tl{margin-top:32px;display:flex;flex-direction:column;max-width:640px;}
+.tl-row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #ddd;align-items:baseline;}
+.tl-row:last-child{border-bottom:none;}
+.tl-date{font-family:"Barlow Condensed",sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);}
+.tl-label{font-size:16px;color:var(--text-mid);}
+.tl-note{margin-top:32px;font-family:"Barlow",sans-serif;font-size:14px;color:var(--gray-light);border-left:3px solid var(--red);padding:12px 20px;max-width:640px;}
+@media(max-width:1024px){ #timeline{padding:70px 32px;} }
+@media(max-width:600px){ #timeline{padding:60px 22px;} }
+
+/* FAQ */
+#faq{padding:100px 60px;background:var(--white);border-bottom:1px solid #e8e4df;}
+.faq-list{margin-top:32px;max-width:720px;}
+.faq-list details{border-bottom:1px solid #e8e4df;padding:20px 0;}
+.faq-list details:first-child{border-top:1px solid #e8e4df;}
+.faq-list summary{cursor:pointer;font-family:"Barlow Condensed",sans-serif;font-size:17px;font-weight:600;letter-spacing:0.3px;color:var(--text-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary::after{content:"+";font-family:"Bebas Neue",sans-serif;font-size:26px;color:var(--red);flex-shrink:0;transition:transform 0.2s;}
+.faq-list details[open] summary::after{transform:rotate(45deg);}
+.faq-list details p{margin-top:14px;font-size:16px;color:var(--gray-light);line-height:1.7;max-width:600px;}
+.faq-list summary:focus-visible{outline:2px solid var(--red);outline-offset:4px;}
+@media(max-width:1024px){ #faq{padding:70px 32px;} }
+@media(max-width:600px){ #faq{padding:60px 22px;} }
+
+/* CONTACT */
+#contact{padding:100px 60px;background:var(--gray-section);}
+.contact-inner{max-width:600px;}
+.contact-inner p{font-size:17px;line-height:1.85;color:var(--text-mid);margin-bottom:40px;}
+.btn-mail{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-size:14px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:18px 40px;transition:background 0.2s,transform 0.15s;}
+.btn-mail:hover{background:var(--red-deep);transform:translateY(-2px);}
+@media(max-width:1024px){ #contact{padding:70px 32px;} }
+
+/* FOOTER */
+footer{background:var(--navy-deep);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid var(--red);flex-wrap:wrap;gap:16px;}
+.footer-brand{display:flex;align-items:center;gap:14px;}
+.footer-brand img{height:64px;width:auto;}
+.footer-name{font-family:"Bebas Neue",sans-serif;font-size:22px;color:#f0ede8;letter-spacing:1.5px;}
+footer p{font-family:"Barlow Condensed",sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#f0ede8;}
+@media(max-width:768px){ footer{flex-direction:column;text-align:center;gap:12px;padding:28px 32px;} }
+
+a:focus-visible, button:focus-visible{ outline: 2px solid var(--red); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    <img src="images/seal.png" alt="Richard L. Crosby III Scholarship seal">
+    <span class="nav-name">THE RICHARD L. CROSBY SCHOLARSHIP</span>
+  </a>
+  <ul>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#paths">Eligibility</a></li>
+    <li><a href="#apply" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" style="background-image:url('images/portrait.jpg');"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-red-bar"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      2027 Application Cycle <span class="pipe">|</span> Founded by Richard L. Crosby III <span class="pipe">|</span> Cincinnati &amp; Seattle
+    </div>
+    <h1 class="hero-headline">The <span class="accent">Richard L. Crosby</span><br>Scholarship</h1>
+    <p class="hero-sub">$1,000 awarded each year to two graduating seniors who understand, in their own way, what it means to rebuild and serve.</p>
+    <div class="hero-btns">
+      <a href="#apply" class="btn-p">How to Apply</a>
+      <a href="#story" class="btn-s">The Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- AWARD STRIP -->
+<div class="award-strip">
+  <div class="award-cell">
+    <div class="amt">$1,000</div>
+    <div class="loc">Cincinnati Region</div>
+  </div>
+  <div class="award-cell">
+    <div class="amt">$1,000</div>
+    <div class="loc">Seattle Region</div>
+  </div>
+</div>
+
+<!-- SEAL BAND -->
+<div class="seal-band">
+  <img src="images/seal.png" alt="Richard L. Crosby III Scholarship seal — Unity in Service">
+  <div class="seal-text">
+    <div class="seal-motto">Unity in Service</div>
+  </div>
+</div>
+
+<!-- QUOTE BLAST -->
+<div class="quote-blast">
+  <blockquote>
+    <span class="open-quote">&ldquo;</span>The peaks showed me what was <span class="accent">possible</span>. The hard times showed me what I was <span class="accent">built for</span>. Neither broke me &mdash; both <span class="accent">shaped me</span>. What I carry forward is a commitment to growth, positive impact, and work that <span class="accent">matters</span>.&rdquo;
+  </blockquote>
+  <cite>&mdash; Richard L. Crosby III</cite>
+</div>
+
+<!-- FOUNDER STORY -->
+<section id="story">
+  <div class="story-visual">
+    <img src="images/portrait.jpg" alt="Richard L. Crosby III">
+    <p class="story-caption">Richard L. Crosby III &mdash; Cincinnati, Ohio</p>
+  </div>
+  <div class="story-text">
+    <div class="eyebrow">The Founder</div>
+    <h2 class="sec-h2-dark">Why This<br>Scholarship Exists</h2>
+
+    <p>Richard L. Crosby III spent years as one of Ohio&rsquo;s top criminal defense attorneys &mdash; recognized among the state&rsquo;s Top 100, making partner at a prominent firm, and later running as a candidate for U.S. Representative for Ohio&rsquo;s 2nd Congressional District. He argued for the rights and freedom of others across hundreds of cases.</p>
+
+    <p>Today, Richard channels that experience into building &mdash; through the Comma Foundation, his nonprofit advancing affordable housing, eviction prevention, and reentry services, and through ventures under the RC3 Group. The Richard L. Crosby Scholarship extends that same mission directly to students: supporting the sons and daughters of the officers who serve on the front lines of the justice system, and the young people whose families have lived through what&rsquo;s on the other side of it.</p>
+
+    <p>We don&rsquo;t see these as two separate worlds. A household built around service and a household that&rsquo;s weathered its hardest chapter often arrive at the same understanding of responsibility, consequence, and community &mdash; and this scholarship is built on the belief that students from both backgrounds can stand together, not apart, in the work of changing the systems that shaped them.</p>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section id="why">
+  <div class="why-visual">
+    <img src="images/graduation.jpg" alt="Graduating student holding a cap in celebration">
+  </div>
+  <div class="why-text">
+    <h3>Two experiences.<br>One belief in what comes next.</h3>
+    <p>A student raised in a law enforcement household and a student who&rsquo;s navigated their family&rsquo;s hardest chapter rarely get asked to stand in the same room. This scholarship starts from the idea that both understand something about service, consequence, and responsibility that most eighteen-year-olds haven&rsquo;t had to learn yet &mdash; and both deserve support stepping into what&rsquo;s next.</p>
+  </div>
+</section>
+
+<!-- TWO PATHS -->
+<section id="paths">
+  <div class="p-header">
+    <div class="eyebrow" style="color:var(--red);">Two Paths, One Scholarship</div>
+    <h2 class="sec-h2-light">Who Can<br>Apply.</h2>
+    <p>Applicants qualify through either of the following &mdash; not both are required.</p>
+  </div>
+  <div class="paths-grid">
+    <div class="path-card">
+      <span class="path-tag">Path — Service Families</span>
+      <h3>Children of Law Enforcement</h3>
+      <p>Open to high school seniors who are the son, daughter, or dependent of a current or former law enforcement officer.</p>
+    </div>
+    <div class="path-card">
+      <span class="path-tag">Path — Building Forward</span>
+      <h3>Family &amp; Personal Resilience</h3>
+      <p>Open to high school seniors whose family has experienced a parent&rsquo;s incarceration, or who have personally navigated legal trouble and are now working toward their education and future.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section id="regions">
+  <div class="eyebrow">Where It&rsquo;s Awarded</div>
+  <h2 class="sec-h2-dark">Cincinnati<br>&amp; Seattle</h2>
+  <div class="regions-grid">
+    <div class="region-card">
+      <img src="images/cincinnati.jpg" alt="Cincinnati, Ohio skyline at dusk">
+      <div class="region-tag">Cincinnati Region</div>
+    </div>
+    <div class="region-card">
+      <img src="images/seattle.jpg" alt="Seattle, Washington skyline with the Space Needle">
+      <div class="region-tag">Seattle Region</div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section id="eligibility">
+  <div class="eyebrow">Requirements</div>
+  <h2 class="sec-h2-dark">Eligibility at<br>a Glance</h2>
+  <div class="elig-list">
+    <div class="elig-item">Currently a high school senior, graduating in the spring of the application year.</div>
+    <div class="elig-item">Planning to enroll in a trade or vocational program, or a four-year college or university, the following fall.</div>
+    <div class="elig-item">Meets the criteria for at least one of the two paths above.</div>
+    <div class="elig-item">Lives in, or attends school in, the greater Cincinnati or Seattle region.</div>
+  </div>
+</section>
+
+<!-- ESSAY PROMPT -->
+<section id="essay">
+  <div class="plaque">
+    <div class="eyebrow">The Essay Contest — 1,000 Words or Fewer</div>
+    <blockquote>&ldquo;Public service takes many forms &mdash; inside a uniform, inside a courtroom, or inside the quiet decision to turn your own life around and give back. Describe a person, moment, or experience that shaped your understanding of what public service means, and how it will guide the way you show up for your community.&rdquo;</blockquote>
+    <div class="word-limit">Judged on Originality, Creativity &amp; Overall Quality</div>
+  </div>
+</section>
+
+<!-- HOW TO APPLY -->
+<section id="apply">
+  <div class="apply-header">
+    <div class="eyebrow">Application</div>
+    <h2 class="sec-h2-dark">How to<br>Apply.</h2>
+    <p>Applications are reviewed by a small internal committee. There is no application fee.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <h4>Write Your Essay</h4>
+        <p>Respond to this year&rsquo;s prompt in 1,000 words or fewer. Save it as a PDF.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <h4>Gather Your Transcript</h4>
+        <p>An official or unofficial copy of your current high school transcript.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <h4>Write a Cover Letter</h4>
+        <p>Include your full name, phone number, email address, current school, expected graduation date, a short personal bio, and your GPA.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <h4>Submit Everything by Email</h4>
+        <p>Send your essay, transcript, and cover letter as attachments to <code>apply@richardcrosbyscholarship.com</code>. Use your full name as the subject line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="eyebrow">Key Dates</div>
+  <h2 class="sec-h2-dark">Timeline.</h2>
+  <div class="tl">
+    <div class="tl-row"><div class="tl-date">January 2027</div><div class="tl-label">Applications open</div></div>
+    <div class="tl-row"><div class="tl-date">April 15, 2027</div><div class="tl-label">Application deadline — 11:59pm local time</div></div>
+    <div class="tl-row"><div class="tl-date">May 2027</div><div class="tl-label">Finalists reviewed by the selection committee</div></div>
+    <div class="tl-row"><div class="tl-date">Late May 2027</div><div class="tl-label">Winners notified directly by email</div></div>
+    <div class="tl-row"><div class="tl-date">Fall 2027</div><div class="tl-label">$1,000 paid directly to each winner's school</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="eyebrow">Questions</div>
+  <h2 class="sec-h2-dark">Frequently<br>Asked.</h2>
+  <div class="faq-list">
+    <details>
+      <summary>Do I need to qualify for both paths to apply?</summary>
+      <p>No. You only need to meet the criteria for one of the two paths — either a law enforcement family background, or a family or personal history involving incarceration.</p>
+    </details>
+    <details>
+      <summary>How is the $1,000 paid out?</summary>
+      <p>Funds are sent directly to the financial aid or bursar's office of the college or trade school you'll be attending — not to the student directly.</p>
+    </details>
+    <details>
+      <summary>Can I apply if I'm attending a trade or vocational school instead of a four-year college?</summary>
+      <p>Yes. Trade school and vocational program enrollment qualifies equally alongside four-year college or university enrollment.</p>
+    </details>
+    <details>
+      <summary>What if I miss the deadline?</summary>
+      <p>Late applications aren't accepted for that year's cycle, but we'd encourage you to apply the following year if you're still eligible.</p>
+    </details>
+    <details>
+      <summary>Who do I contact with questions?</summary>
+      <p>Email <a href="mailto:apply@richardcrosbyscholarship.com" style="color:var(--navy);">apply@richardcrosbyscholarship.com</a> with any questions about eligibility or the application.</p>
+    </details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow">Questions?</div>
+    <h2 class="sec-h2-dark">Get in<br>Touch.</h2>
+    <p>Whether it&rsquo;s about eligibility, the essay prompt, or your application status &mdash; reach out any time by email.</p>
+    <a href="mailto:apply@richardcrosbyscholarship.com" class="btn-mail">Email apply@richardcrosbyscholarship.com</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="images/seal.png" alt="Richard L. Crosby III Scholarship seal">
+    <span class="footer-name">THE RICHARD L. CROSBY SCHOLARSHIP</span>
+  </div>
+  <p>&copy; 2026. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
